@@ -1,6 +1,7 @@
 import logging
 import pickle
 import typing as _t
+import pandas as pd
 
 
 class BaseSerializer:
@@ -47,7 +48,7 @@ class BaseSerializer:
 
     def loads(self, bvalue: bytes) -> _t.Any:
         try:
-            data = pickle.loads(bvalue)
+            data = pd.compat.pickle_compat.loads(bvalue)
         except pickle.PickleError as e:
             self._warn(e)
             return None
