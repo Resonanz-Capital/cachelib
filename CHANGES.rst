@@ -1,3 +1,32 @@
+Version 0.13.0
+--------------
+
+Released 2024-04-13
+
+-   default ``hashlib.md5`` may not be available in FIPS builds. We
+    now do not access it at import time on ``FileSystemCache``so developers
+    have time to change the default.
+    ``hashlib.md5`` will be lazy loaded when a new default is not provided
+
+
+Version 0.12.0
+--------------
+
+Released 2024-02-11
+
+- ``RedisCache`` now supports callables as keys
+- Added ``MongoDB`` as a cache backend
+
+
+Version 0.11.0
+--------------
+
+Released 2024-02-10
+
+- Drop python 3.7 support
+- Add python 3.11 support
+
+
 Version 0.10.2
 --------------
 
@@ -9,7 +38,7 @@ Released 2023-01-31
 Version 0.10.1
 --------------
 
-Unreleased
+Released 2023-01-22
 
 - Fix logging pollution due to ``DynamoDB`` logging handler
 
@@ -21,7 +50,6 @@ Released 2023-01-22
 
 - Improve error message when ``FileSystemCache`` methods are called with non-str keys. :pr:`170`
 - Added ``DynamoDb`` as a cache backend :pr:`209`
-
 
 Version 0.9.0
 -------------
